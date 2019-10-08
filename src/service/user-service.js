@@ -3,7 +3,7 @@ var _user = {
     //  登录
     login: function(userInfo,resolve,reject){
         _mm.request({
-            url     : '/user/login.do',
+            url     : _mm.getServerUrl('/user/login.do'),
             data    : userInfo,
             method  : 'POST',
             success : resolve,

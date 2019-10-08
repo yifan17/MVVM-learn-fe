@@ -1,0 +1,15 @@
+{{#floorData}}
+<div class="floor-wrap">
+    <h1 class="floor-title">{{title}}</h1>
+    <ul class="floor-list">
+        {{#list}}
+        <li class="floor-item">
+            <a href="./list.html?categoryId={{categoryId}}" class="link">
+                <span class="floor-text">{{name}}</span>
+                <img src="../../image/floor/floor1-1.jpg" alt="双开门冰箱" class="floor-img">
+            </a>
+        </li> 
+        {{/list}}
+    </ul>
+</div>
+{{/floorData}}

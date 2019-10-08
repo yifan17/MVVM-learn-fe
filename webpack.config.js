@@ -25,6 +25,12 @@ var config = {
         'user-center-update': ['./src/page/user-center-update/user-center-update.js'],
         'user-pass-update'  : ['./src/page/user-pass-update/user-pass-update.js'],
         'about'             : ['./src/page/about/about.js'],
+        'list'              : ['./src/page/list/list.js'],
+        'detail'            : ['./src/page/detail/detail.js'],
+        'cart'              : ['./src/page/cart/cart.js'],
+        'order-confirm'     : ['./src/page/order-confirm/order-confirm.js'],
+        'order-list'        : ['./src/page/order-list/order-list.js'],
+        'payment'           : ['./src/page/payment/payment.js'],
         'result'            : ['./src/page/result/result.js']
         
     },
@@ -91,6 +97,12 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-center-update','用户信息更新')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-update','修改密码')),
         new HtmlWebpackPlugin(getHtmlConfig('about','关于网站')),
+        new HtmlWebpackPlugin(getHtmlConfig('list','商品列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('detail','商品详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('cart','购物车')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-confirm','购物车')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-list','订单列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('payment','订单支付')),
         new HtmlWebpackPlugin(getHtmlConfig('result','操作结果'))
     ]
 }

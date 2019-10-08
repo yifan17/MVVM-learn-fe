@@ -18,6 +18,8 @@ var nav = {
         $('.js-register').click(function(){
             window.location.href = './user-register.html';
         })
+        // 点击购物车
+        
         // 退出登录
         $('.js-logout').click(function(){
             _user.logout(function(){
