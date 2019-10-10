@@ -14,8 +14,7 @@ var page = {
         this.bindEvent();
     },
     onLoad : function(){
-        this.loadDetail()
-        console.log(this.data)
+        this.loadDetail();
     },
     bindEvent : function(){
         var _this = this;
@@ -84,6 +83,9 @@ var page = {
     filter : function(data){
         // 遇到需要处理的数据就可以写一个这样的函数
         data.subImages = data.subImages.split(',')
+        if(data.stock <= 0){
+            data.isSellOut = true;
+        }
     }
 }
 $(function(){

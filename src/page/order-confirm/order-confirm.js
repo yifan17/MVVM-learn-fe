@@ -1,16 +1,15 @@
 require('./order-confirm.css');
 require('page/common/header/header.js');
-var nav             = require('page/common/nav/nav.js');
+require('page/common/nav/nav.js');
 var _mm             = require('util/mm.js');
-var addressModal   = require('./address-modal.js');
+var addressModal    = require('./address-modal.js');
 var _order          = require('service/order-service.js');
 var _address        = require('service/address-service.js');
-var templateOrder   = require('./order-confirm.string');
 var templateAddress = require('./address-list.string');
 var templateProduct = require('./product-list.string');
 var page ={
     data : {
-        selectAddressId : ''
+        selectAddressId : null
     },
     init : function(){
         this.onLoad();
@@ -23,7 +22,8 @@ var page ={
     bindEvent : function(){
         var _this = this;
         // 地址的添加
-        $(document).on('click','.address-add',function(){
+        $(document).on('click','.address-add',function(e){
+            e.stopPropagation();
             addressModal.show({
                 // 判断是新增还是更新
                 isUpdate  : false,
@@ -52,12 +52,13 @@ var page ={
         })
         // 选中地址
         $(document).on('click','.address-item',function(e){
+            e.stopPropagation();
             _this.data.selectAddressId = $(this).data('id');
             $(this).addClass('active').siblings('.address-item').removeClass('active');
-            e.stopPropagation();
         })
         // 删除地址
-        $(document).on('click','.address-delete',function(){
+        $(document).on('click','.address-delete',function(e){
+            e.stopPropagation();
             var shippingId = $(this).parents('.address-item').data('id');
             if(window.confirm('确定要删除该地址吗？') && shippingId){
                _address.deleteAddress({shippingId : shippingId},function(res){
@@ -69,7 +70,7 @@ var page ={
             }else{
                 return;
             }
-           
+            
         })
         // 点击提交订单
         $(document).on('click','.order-submit',function(){
@@ -87,9 +88,11 @@ var page ={
     },
     // 加载地址列表
     loadAddressList : function(){
+        var _this = this;
         $('.address-con').html('<div class="loading"></div>');
         // 获取地址列表
         _address.getAddressList(function(res){
+            _this.addressFilter(res);
             var addressListHtml = _mm.renderHtml(templateAddress,res);
             $('.address-con').html(addressListHtml);
         },function(errMsg){
@@ -103,9 +106,27 @@ var page ={
             var productListHtml = _mm.renderHtml(templateProduct,res);
             $('.product-con').html(productListHtml);
         },function(errMsg){
+            window.location.href = './cart.html';
             $('.product-con').html('<p class="err-tip">商品信息加载失败，请刷新后重试</p>');
         });
-        
+    },
+    // 处理一下小细节，当选中一个地址的时候，再去编辑或者删除另一个一个地址
+    // 会影响当前选中地址的选中状态,所以渲染列表的时候要加一个处理列表的函数
+    // 这样同时还解决了当选中一个地址以后删除该地址，依然能提交的问题
+    addressFilter : function(data){
+            if(this.data.selectAddressId){
+                var selectAddressIdFlag = true;
+                for(var i = 0,length = data.list.length; i < length;i++){
+                    if(data.list[i].id === this.data.selectAddressId){
+                        data.list[i].isActive = true;
+                        selectAddressIdFlag = false;
+                    }
+                }
+            }
+            if(selectAddressIdFlag){
+                this.data.selectAddressId = null;
+            }
+
     }
 }
 $(function(){

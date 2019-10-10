@@ -8,6 +8,7 @@ var getHtmlConfig = function(name,title) {
     return {
         template    : './src/view/' + name + '.html',
         filename    : 'view/' + name + '.html',
+        favicon     : './favicon.ico',
         title       : title,
         inject      : true,
         hash        : true,
@@ -30,6 +31,7 @@ var config = {
         'cart'              : ['./src/page/cart/cart.js'],
         'order-confirm'     : ['./src/page/order-confirm/order-confirm.js'],
         'order-list'        : ['./src/page/order-list/order-list.js'],
+        'order-detail'        : ['./src/page/order-detail/order-detail.js'],
         'payment'           : ['./src/page/payment/payment.js'],
         'result'            : ['./src/page/result/result.js']
         
@@ -102,6 +104,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('cart','购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('order-confirm','购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('order-list','订单列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-detail','订单详情')),
         new HtmlWebpackPlugin(getHtmlConfig('payment','订单支付')),
         new HtmlWebpackPlugin(getHtmlConfig('result','操作结果'))
     ]

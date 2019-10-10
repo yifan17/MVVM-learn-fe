@@ -9,7 +9,7 @@
     cursor: pointer;
 }
 .address-item.active{
-    border: 3px dashed #c60023;
+    border: 3px dashed #1ab394;
 }
 .address-item:hover{
     background: #fafafa;
@@ -98,7 +98,7 @@
 .submit-con .submit-total{
     margin-right: 20px;
     font-size: 18px;
-    color: #c60023;
+    color: #1ab394;
     vertical-align: middle;
     font-weight: bold;
 }
@@ -161,7 +161,7 @@
     cursor: pointer;
 }
 .form .form-line .label .required{
-	color: #c60023;
+	color: #1ab394;
 }
 .form .form-line .form-item{
 	padding: 0 5px;

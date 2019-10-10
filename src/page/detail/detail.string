@@ -30,9 +30,17 @@
             <span class="p-count-btn plus">+</span>
             <span class="p-count-btn minus">-</span>
         </div>
+        
         <div class="p-info-item">
+            {{#isSellOut}}
+            <a class="btn sell-out">售罄</a>
+            {{/isSellOut}}
+            {{^isSellOut}}
             <a class="btn cart-add">加入购物车</a>
+            {{/isSellOut}}
         </div>
+        
+        
     </div>
 </div>
 <div class="detail-wrap">

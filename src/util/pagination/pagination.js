@@ -12,7 +12,7 @@ var pagination = function(){
     // 点击事件处理
     $(document).on('click','.pg-item',function(){
         $this = $(this);
-        if($this.hasClass('active')|| $this.hasClass('disable')){
+        if($this.hasClass('active')|| $this.hasClass('disabled')){
             return;
         };
         typeof _this.option.onSelectPage === 'function'

@@ -16,8 +16,8 @@
 	cursor: pointer;
 }
 .sort-con .sort-item.active{
-	background: #c60023;
-	border: 1px solid #c60023;
+	background: #1ab394;
+	border: 1px solid #1ab394;
 	color: #fff;
 }
 .sort-con .sort-item .fa-sort-desc{
@@ -80,38 +80,4 @@
 	font-weight: bold;
 	text-align: center;
 	background: #eee;
-}
-/* 分页 */
-.pg-content{
-	text-align: center;
-	color: #333;
-}
-.pg-content .pg-item{
-	display: inline-block;
-	height: 36px;
-	line-height: 36px;
-	padding: 0 15px;
-	margin: 0 2px;
-	border: 1px solid #ccc;
-	background: #eee;
-	cursor: pointer;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-.pg-content .pg-item.disabled{
-	color: #ccc;
-	background: none;
-	cursor: auto;
-}
-.pg-content .pg-item.active{
-	border: 1px solid #f6f6f6;
-	background: none;
-	cursor: auto;
-}
-.pg-content .pg-total{
-	margin-left: 10px;
-	background: none;
-	cursor: auto;
 }

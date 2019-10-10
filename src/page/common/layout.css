@@ -59,7 +59,7 @@ input[type='checkbox']{
 	text-decoration: none;
 }
 .link:hover{
-	color: #e80012;
+	color: #1ab394;
 }
 .link-text{
 	color: #999;
@@ -75,7 +75,7 @@ vertical-align: middle;是防止其他样式冲突*/
 	line-height: 40px;
 	vertical-align: middle;
 	border: none;
-	background: #e4393c;
+	background: #1ab394;
 	font-size: 17px;
 	font-weight: bold;
 	color: #fff;
