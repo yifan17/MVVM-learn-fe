@@ -48,7 +48,6 @@ var page = {
             },function(errMsg){
                 $content.html('<p class="err-tip">'+errMsg+'</p>');
             })
-        
     },
     // 根据订单状态渲染模版
     dataFilter : function(data){

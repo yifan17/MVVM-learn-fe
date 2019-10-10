@@ -93,6 +93,7 @@ var addressModal = {
             $citySelect.val(this.option.data.receiverCity);
         }
     },
+    // 这里为了处理一个细节问题，所以更新城市的时候另写了一个函数
     updateCities : function(provinceName){
         var cities = _cities.getCities(provinceName) || [],
             $citySelect = this.$modalWrap.find('#receiver-city');

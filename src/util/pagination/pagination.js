@@ -1,7 +1,8 @@
 require('./pagination.css');
 var _mm = require('util/mm.js');
 var templatePage = require('util/pagination/pagination.string');
-var pagination = function(){
+var Pagination = function(){
+    // 这里我的理解是this指向的是Pagination.prototype，所以defaultOption是在Pagination.prototype里的
     var _this = this;
     this.defaultOption = {
         container : null,
@@ -20,7 +21,7 @@ var pagination = function(){
     })
 };
 // 渲染分页组件
-pagination.prototype.render = function(userInfo){
+Pagination.prototype.render = function(userInfo){
     this.option = $.extend({},this.defaultOption,userInfo);
     // 这里container有可能传的不是jquery对象，做了一个容错处理
     if(!(this.option.container instanceof jQuery)){
@@ -34,7 +35,7 @@ pagination.prototype.render = function(userInfo){
     this.option.container.html(this.getPaginationHtml());
 };
 // 获取分页的html
-pagination.prototype.getPaginationHtml = function(){
+Pagination.prototype.getPaginationHtml = function(){
     var html = '',
         pageArray= [],
         option = this.option,
@@ -69,4 +70,4 @@ pagination.prototype.getPaginationHtml = function(){
         })
         return html;
 }
-module.exports = pagination;
+module.exports = Pagination;

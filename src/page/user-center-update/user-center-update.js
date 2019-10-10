@@ -18,7 +18,6 @@ var page = {
         $(document).on('keyup','.user-info',function(e){
             if(e.keyCode === 13){
                 _this.submit();
-                // 这里keyup可能会执行两次，所以要加一个return false
                 e.stopPropagation();
             }
         })

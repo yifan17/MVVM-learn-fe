@@ -43,13 +43,10 @@ var page = {
             var nowId = $(this).attr('id');
             if(e.keyCode === 13){
                 if('username' == nowId){
-                    alert('11111');
                     _this.usernameSubmit();
                 }else if('answer' == nowId){
-                    alert('2222');
                     _this.answerSubmit();
                 }else if('password' == nowId){
-                    alert("333333");
                     _this.newPassword();
                 }
             }
